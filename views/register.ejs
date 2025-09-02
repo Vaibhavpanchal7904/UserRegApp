@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="/css/register.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!doctype html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="register-container">
+    
+
+    <!-- Right side form -->
+    <div class="register-card">
+      <h2><i class="fa-solid fa-user-plus"></i> Create Your Account</h2>
+
+      <!-- Instruction message -->
+      <p class="instruction">
+        Please fill in the form below to create your account. Fields marked with 
+        <span class="required">*</span> are required.
+      </p>
+
+      <% if (error) { %>
+        <div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation"></i> <%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/register">
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName"><i class="fa-solid fa-id-card"></i> Full Name <span class="required">*</span></label>
+          <input id="fullName" name="fullName" type="text" placeholder="Vaibhav Panchal" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email"><i class="fa-solid fa-envelope"></i> Email <span class="required">*</span></label>
+          <input id="email" name="email" type="email" placeholder="vaibhavpanchal7904@example.com" required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password"><i class="fa-solid fa-lock"></i> Password <span class="required">*</span></label>
+          <input id="password" name="password" type="password" placeholder="••••••••" required>
+          <i class="fa-solid fa-eye toggle-password" onclick="togglePassword()"></i>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label for="phone"><i class="fa-solid fa-phone"></i> Phone</label>
+          <input id="phone" name="phone" type="text" placeholder="+00000000000">
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+          <label for="gender"><i class="fa-solid fa-venus-mars"></i> Gender</label>
+          <select id="gender" name="gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option selected>Other</option>
+          </select>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="form-group">
+          <label for="dob"><i class="fa-solid fa-calendar-days"></i> Date of Birth</label>
+          <input id="dob" name="dob" type="date">
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+          <label for="address"><i class="fa-solid fa-location-dot"></i> Address</label>
+          <textarea id="address" name="address" placeholder="123 Main St, City"></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit"><i class="fa-solid fa-user-check"></i> Register</button>
+      </form>
+
+      <p class="login-link">
+        Already have an account?
+        <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pass = document.getElementById("password");
+      pass.type = pass.type === "password" ? "text" : "password";
+    }
+  </script>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

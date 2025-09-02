@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <style>
+    canvas { width: 100% !important; max-height: 400px; }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="container">
+    <h2>Admin Dashboard</h2>
+    <p>Total Users: <strong><%= totalUsers %></strong></p>
+
+    <!-- Search/Filter -->
+    <form method="GET" action="/admin/dashboard">
+      <input name="q" value="<%= query.q || '' %>" placeholder="Search name">
+      <select name="gender">
+        <option value="">All Gender</option>
+        <option value="Male" <%= query.gender==='Male'?'selected':'' %>>Male</option>
+        <option value="Female" <%= query.gender==='Female'?'selected':'' %>>Female</option>
+        <option value="Other" <%= query.gender==='Other'?'selected':'' %>>Other</option>
+      </select>
+      <input name="from" type="date" value="<%= query.from || '' %>">
+      <input name="to" type="date" value="<%= query.to || '' %>">
+      <button>Filter</button>
+    </form>
+
+    <!-- Table -->
+    <table>
+      <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Gender</th><th>DOB</th></tr></thead>
+      <tbody>
+        <% users.forEach((u,i) => { %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><%= u.fullName %></td>
+            <td><%= u.email %></td>
+            <td><%= u.phone || '-' %></td>
+            <td><%= u.gender || '-' %></td>
+            <td><%= u.dob ? new Date(u.dob).toDateString() : '-' %></td>
+            <td>
+          <form action="/admin/user/delete/<%= u._id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
+            <button type="submit" style="color:white;">Delete</button>
+          </form>
+        </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <!-- Exports -->
+    <div class="mb-4">
+      <a href="/admin/export/csv">Export CSV</a>
+      <a href="/admin/export/pdf">Export PDF</a>
+    </div>
+
+    <!-- Charts -->
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Users by Gender</h5>
+        <canvas id="genderChart"></canvas>
+      </div>
+      <div class="col-md-6">
+        <h5>Age Groups</h5>
+        <canvas id="ageChart"></canvas>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <h5>Monthly Registrations</h5>
+      <canvas id="monthlyChart"></canvas>
+      
+
+    </div>
+  </div>
+
+  <!-- ✅ Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const genderData = <%- JSON.stringify(genderCount) %>;
+    const ageGroups = <%- JSON.stringify(ageGroups) %>;
+    const monthlyRegs = <%- JSON.stringify(monthlyRegs) %>;
+
+    // Gender chart
+    const gLabels = genderData.map(g => g._id || 'Unknown');
+    const gCounts = genderData.map(g => g.count);
+    new Chart(document.getElementById('genderChart'), {
+      type: 'pie',
+      data: { labels: gLabels, datasets: [{ data: gCounts, backgroundColor: ["#36A2EB","#FF6384","#FFCE56"] }] }
+    });
+
+    // Age chart
+    const aLabels = Object.keys(ageGroups);
+    const aCounts = Object.values(ageGroups);
+    new Chart(document.getElementById('ageChart'), {
+      type: 'bar',
+      data: { labels: aLabels, datasets: [{ label: 'Users', data: aCounts, backgroundColor: "#36A2EB" }] }
+    });
+
+    // Monthly chart
+    const mLabels = monthlyRegs.map(m => m._id);
+    const mCounts = monthlyRegs.map(m => m.count);
+    new Chart(document.getElementById('monthlyChart'), {
+      type: 'line',
+      data: { labels: mLabels, datasets: [{ label: 'New regs', data: mCounts, borderColor: "#FF6384", fill: false }] }
+    });
+  </script>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

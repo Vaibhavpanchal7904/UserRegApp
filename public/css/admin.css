@@ -1,0 +1,161 @@
+/* ===============================
+   Base Layout
+================================= */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #eef2fb;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2d2f3b;
+}
+
+/* ===============================
+   Forms (Search/Filter)
+================================= */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+form input, 
+form select, 
+form button {
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+form input:focus, 
+form select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 6px rgba(99,102,241,0.3);
+}
+
+form button {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+form button:hover {
+  background: #4f46e5;
+}
+
+/* ===============================
+   Table
+================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+thead {
+  background: #f3f4f6;
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  font-weight: 600;
+  color: #374151;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* ===============================
+   Export Links
+================================= */
+.mb-4 {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.mb-4 a {
+  padding: 10px 16px;
+  background: #10b981;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.mb-4 a:hover {
+  background: #059669;
+}
+
+/* ===============================
+   Charts Section
+================================= */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.col-md-6 {
+  flex: 1;
+  min-width: 300px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.mt-4 {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ===============================
+   Header & Footer from partials
+================================= */
+header, footer {
+  background: #6366f1;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 0 0 16px 16px;
+  text-align: center;
+}

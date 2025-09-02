@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/login.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<div class="login-container">
+  <div class="login-card">
+    <!-- Icon header -->
+    <div class="login-header">
+      <i class="fa-solid fa-right-to-bracket"></i>
+      <h2>Login</h2>
+    </div>
+
+    <!-- Short instruction -->
+    <p class="login-instruction">
+      Please enter your registered email and password to access your account.
+    </p>
+
+    <% if (registered) { %>
+      <div class="alert alert-success">✅ Registered successfully. Please login.</div>
+    <% } %>
+
+    <% if (error) { %>
+      <div class="alert alert-danger">⚠️ <%= error %></div>
+    <% } %>
+
+    <form method="POST" action="/login" class="login-form">
+      <div class="form-group">
+        <label><i class="fa-solid fa-envelope"></i> Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <small>Use the email you registered with.</small>
+      </div>
+
+      <div class="form-group">
+        <label><i class="fa-solid fa-lock"></i> Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <small>Your password must be at least 6 characters long.</small>
+      </div>
+
+      <button type="submit" class="btn-login">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+      </button>
+    </form>
+
+    <p class="register-link">
+      <i class="fa-solid fa-user-plus"></i> Don’t have an account? 
+      <a href="/register">Register</a>
+    </p>
+  </div>
+</div>

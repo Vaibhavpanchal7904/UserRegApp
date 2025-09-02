@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  
+  <div class="container">
+    <h2>Your Profile</h2>
+    <table>
+      <tr><th>Name</th><td><%= user.fullName %></td></tr>
+      <tr><th>Email</th><td><%= user.email %></td></tr>
+      <tr><th>Phone</th><td><%= user.phone || '-' %></td></tr>
+      <tr><th>Gender</th><td><%= user.gender || '-' %></td></tr>
+      <tr><th>DOB</th><td><%= user.dob ? new Date(user.dob).toDateString() : '-' %></td></tr>
+      <tr><th>Address</th><td><%= user.address || '-' %></td></tr>
+      <tr><th>Joined</th><td><%= new Date(user.createdAt).toDateString() %></td></tr>
+    </table>
+
+    <a href="/profile/edit" class="btn">Edit Profile</a>
+  </div>
+  
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* Background */
+.edit-profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #eaf6ff; /* same as register */
+}
+
+/* Card box */
+.edit-profile-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  width: 420px; /* slightly wider than register */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d6e9f9;
+}
+
+/* Heading */
+.edit-profile-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #003366;
+  font-weight: 600;
+}
+
+/* Input fields */
+.edit-profile-card input,
+.edit-profile-card textarea,
+.edit-profile-card select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #cfd9e6;
+  border-radius: 8px;
+  background: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.edit-profile-card input:focus,
+.edit-profile-card textarea:focus,
+.edit-profile-card select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button */
+.edit-profile-card button {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-profile-card button:hover {
+  background: #0056b3;
+}
+
+/* Alerts */
+.alert {
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.alert-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
