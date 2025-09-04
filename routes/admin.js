@@ -113,4 +113,21 @@ router.post('/admin/user/delete/:id', requireAdmin, async (req, res) => {
   }
 });
 
+// View a single user profile (admin side)
+router.get('/admin/user/:id', requireAdmin, async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).lean();
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    res.render('admin-user-profile', { user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+
+
 module.exports = router;

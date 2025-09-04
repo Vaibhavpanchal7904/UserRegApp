@@ -2,23 +2,47 @@
 <html>
 <head>
   <link rel="stylesheet" href="/css/profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <%- include('partials/header') %>
   
   <div class="container">
-    <h2>Your Profile</h2>
+    <h2><i class="fa-solid fa-user-circle"></i> Your Profile</h2>
     <table>
-      <tr><th>Name</th><td><%= user.fullName %></td></tr>
-      <tr><th>Email</th><td><%= user.email %></td></tr>
-      <tr><th>Phone</th><td><%= user.phone || '-' %></td></tr>
-      <tr><th>Gender</th><td><%= user.gender || '-' %></td></tr>
-      <tr><th>DOB</th><td><%= user.dob ? new Date(user.dob).toDateString() : '-' %></td></tr>
-      <tr><th>Address</th><td><%= user.address || '-' %></td></tr>
-      <tr><th>Joined</th><td><%= new Date(user.createdAt).toDateString() %></td></tr>
+      <tr>
+        <th><i class="fa-solid fa-id-card"></i> Name</th>
+        <td><%= user.fullName %></td>
+      </tr>
+      <tr>
+        <th><i class="fa-solid fa-envelope"></i> Email</th>
+        <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <th><i class="fa-solid fa-phone"></i> Phone</th>
+        <td><%= user.phone || '-' %></td>
+      </tr>
+      <tr>
+        <th><i class="fa-solid fa-venus-mars"></i> Gender</th>
+        <td><%= user.gender || '-' %></td>
+      </tr>
+      <tr>
+        <th><i class="fa-solid fa-calendar-days"></i> DOB</th>
+        <td><%= user.dob ? new Date(user.dob).toDateString() : '-' %></td>
+      </tr>
+      <tr>
+        <th><i class="fa-solid fa-location-dot"></i> Address</th>
+        <td><%= user.address || '-' %></td>
+      </tr>
+      <tr>
+        <th><i class="fa-solid fa-clock"></i> Joined</th>
+        <td><%= new Date(user.createdAt).toDateString() %></td>
+      </tr>
     </table>
 
-    <a href="/profile/edit" class="btn">Edit Profile</a>
+    <a href="/profile/edit" class="btn">
+      <i class="fa-solid fa-user-pen"></i> Edit Profile
+    </a>
   </div>
   
   <%- include('partials/footer') %>

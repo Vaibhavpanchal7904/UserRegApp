@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>User Profile - <%= user.fullName %></title>
+  <link rel="stylesheet" href="/css/adminprofile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <div class="profile-card">
+    <h2><i class="fa-solid fa-user-circle"></i> User Profile</h2>
+
+    <div class="profile-info">
+      <i class="fa-solid fa-id-card"></i> <strong>Name:</strong> 
+      <span><%= user.fullName %></span>
+    </div>
+
+    <div class="profile-info">
+      <i class="fa-solid fa-envelope"></i> <strong>Email:</strong> 
+      <span><%= user.email %></span>
+    </div>
+
+    <div class="profile-info">
+      <i class="fa-solid fa-phone"></i> <strong>Phone:</strong> 
+      <span><%= user.phone || '-' %></span>
+    </div>
+
+    <div class="profile-info">
+      <i class="fa-solid fa-venus-mars"></i> <strong>Gender:</strong> 
+      <span><%= user.gender || '-' %></span>
+    </div>
+
+    <div class="profile-info">
+      <i class="fa-solid fa-calendar-days"></i> <strong>DOB:</strong> 
+      <span><%= user.dob ? new Date(user.dob).toDateString() : '-' %></span>
+    </div>
+
+    <div class="profile-info">
+      <i class="fa-solid fa-location-dot"></i> <strong>Address:</strong> 
+      <span><%= user.address || '-' %></span>
+    </div>
+
+    <div class="profile-info">
+      <i class="fa-solid fa-clock"></i> <strong>Registered At:</strong> 
+      <span><%= new Date(user.createdAt).toDateString() %></span>
+    </div>
+
+    <a href="/admin/dashboard" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+    </a>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -30,21 +30,33 @@
 
     <!-- Table -->
     <table>
-      <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Gender</th><th>DOB</th></tr></thead>
+      <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Gender</th><th>DOB</th><th>Actions</th></tr></thead>
       <tbody>
         <% users.forEach((u,i) => { %>
           <tr>
             <td><%= i+1 %></td>
-            <td><%= u.fullName %></td>
+            <td>
+       <a href="/admin/user/<%= u._id %>" class="table-user-link">
+  <%= u.fullName %>
+</a>
+
+      </td>
             <td><%= u.email %></td>
             <td><%= u.phone || '-' %></td>
             <td><%= u.gender || '-' %></td>
             <td><%= u.dob ? new Date(u.dob).toDateString() : '-' %></td>
-            <td>
-          <form action="/admin/user/delete/<%= u._id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
-            <button type="submit" style="color:white;">Delete</button>
-          </form>
-        </td>
+           <td>
+  <div class="action-buttons">
+    <a href="/admin/user/<%= u._id %>" class="btn btn-show">Show Profile</a>
+    <form action="/admin/user/delete/<%= u._id %>?_method=DELETE" method="POST" style="margin:0; ""
+    onsubmit="return confirm('Are you sure you want to delete this user?');">
+      <button type="submit" class="btn btn-delete">Delete</button>
+    </form>
+  </div>
+</td>
+
+
+
         </tr>
         <% }) %>
       </tbody>

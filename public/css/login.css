@@ -120,3 +120,37 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* ===== Alert Messages ===== */
+.alert {
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Success */
+.alert-success {
+  background: #ecfdf5;
+  border: 1px solid #10b981;
+  color: #065f46;
+}
+
+/* Error */
+.alert-danger {
+  background: #fef2f2;
+  border: 1px solid #ef4444;
+  color: #991b1b;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
