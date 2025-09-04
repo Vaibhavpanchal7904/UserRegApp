@@ -4,7 +4,10 @@ const { requireAdmin } = require('../middleware/auth');
 const User = require('../models/User');
 const { Parser } = require('json2csv');
 const PDFDocument = require('pdfkit');
-
+const multer = require('multer');
+const csv = require('csv-parser');
+const fs = require('fs');
+const upload = multer({ dest: 'uploads/' });
 // Admin dashboard with search/filter and report data
 router.get('/admin/dashboard', requireAdmin, async (req, res) => {
   try {
@@ -129,5 +132,40 @@ router.get('/admin/user/:id', requireAdmin, async (req, res) => {
   }
 });
 
-
+router.post('/admin/import/csv', requireAdmin, upload.single('csvfile'), async (req, res) => {
+  try {
+    const results = [];
+    fs.createReadStream(req.file.path)
+      .pipe(csv())
+      .on('data', (row) => {
+        results.push(row);
+      })
+      .on('end', async () => {
+        // Map CSV data to User model
+        for (const r of results) {
+          // Prevent duplicate emails
+          const exists = await User.findOne({ email: r.email });
+          if (!exists) {
+            await User.create({
+              fullName: r.fullName,
+              email: r.email,
+              phone: r.phone || '',
+              gender: r.gender || '',
+              dob: r.dob ? new Date(r.dob) : null,
+              address: r.address || '',
+              password: 'Temp@123', // you may want to auto-assign or generate
+              role: 'user'
+            });
+          }
+        }
+        fs.unlinkSync(req.file.path); // cleanup
+        req.session.successMessage = "Users imported successfully!";
+        res.redirect('/admin/dashboard');
+      });
+  } catch (err) {
+    console.error(err);
+    req.session.errorMessage = "Import failed.";
+    res.redirect('/admin/dashboard');
+  }
+});
 module.exports = router;

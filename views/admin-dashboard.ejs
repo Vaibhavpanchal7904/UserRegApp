@@ -67,7 +67,10 @@
       <a href="/admin/export/csv">Export CSV</a>
       <a href="/admin/export/pdf">Export PDF</a>
     </div>
-
+    <form action="/admin/import/csv" method="POST" enctype="multipart/form-data">
+  <input type="file" name="csvfile" accept=".csv" required>
+  <button type="submit">Import CSV</button>
+</form>
     <!-- Charts -->
     <div class="row">
       <div class="col-md-6">
