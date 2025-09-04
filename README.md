@@ -62,8 +62,8 @@ It allows users to register and log in, while providing an **Admin Dashboard** t
 
 ### 1️⃣ Clone the repository:
 ```bash
-git clone https://github.com/your-username/user-registration-app.git
-cd user-registration-app
+git clone https://github.com/Vaibhavpanchal7904/UserRegApp
+cd UserRegApp
 ```
 
 ### 2️⃣ Install dependencies:
