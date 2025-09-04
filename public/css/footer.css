@@ -1,6 +1,4 @@
-/* footer.css */
 
-/* Ensure body takes full height */
 html, body {
   height: 100%;
   margin: 0;
@@ -8,12 +6,10 @@ html, body {
   flex-direction: column;
 }
 
-/* Main content should expand */
 .container {
   flex: 1;
 }
 
-/* Footer styles */
 footer {
   text-align: center;
   padding: 15px 10px;

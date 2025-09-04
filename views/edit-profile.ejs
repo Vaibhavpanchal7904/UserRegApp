@@ -18,7 +18,7 @@
         Update your profile information below. Fields marked with * are required.
       </p>
 
-      <!-- Success/Error messages -->
+      
       <% if (successMessage) { %>
         <div class="alert alert-success"><i class="fa fa-check-circle me-2"></i><%= successMessage %></div>
       <% } %>
@@ -28,7 +28,7 @@
 
       <form method="POST" action="/profile/edit">
         <div class="row g-3">
-          <!-- Full Name -->
+         
           <div class="col-md-6">
             <label class="form-label"><i class="fa fa-user me-2"></i>Full Name *</label>
             <input class="form-control" name="fullName" type="text" placeholder="Enter your name" required 
@@ -36,7 +36,7 @@
             <div class="form-text">Enter your first and last name.</div>
           </div>
 
-          <!-- Email (readonly) -->
+         
           <div class="col-md-6">
             <label class="form-label"><i class="fa fa-envelope me-2"></i>Email</label>
             <input class="form-control" name="email" type="email" readonly 
@@ -44,7 +44,7 @@
             <div class="form-text">Email cannot be changed.</div>
           </div>
 
-          <!-- Phone -->
+     
           <div class="col-md-6">
             <label class="form-label"><i class="fa fa-phone me-2"></i>Phone</label>
             <input class="form-control" name="phone" type="text" placeholder="Enter phone number" 
@@ -62,7 +62,6 @@
             </select>
           </div>
 
-          <!-- Date of Birth -->
           <div class="col-md-6">
             <label class="form-label"><i class="fa fa-calendar me-2"></i>Date of Birth</label>
             <input class="form-control" name="dob" type="date" 
@@ -78,7 +77,7 @@
           </div>
         </div>
 
-        <!-- Submit -->
+     
         <div class="text-center mt-4">
           <button class="btn btn-primary px-4" type="submit">
             <i class="fa fa-save me-2"></i>Save Changes

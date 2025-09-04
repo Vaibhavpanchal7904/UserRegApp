@@ -6,7 +6,6 @@ body {
   color: #333;
 }
 
-/* Center container */
 .changepass-container {
   display: flex;
   justify-content: center;
@@ -31,7 +30,6 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Heading */
 .changepass-card h2 {
   margin-bottom: 20px;
   color: #333;
@@ -56,7 +54,6 @@ body {
   outline: none;
 }
 
-/* Button */
 .changepass-card button {
   width: 100%;
   padding: 12px;
@@ -82,7 +79,7 @@ body {
   color: #555;
 }
 
-/* Success message */
+
 .success-msg {
   color: #155724;
   background: #d4edda;
@@ -94,7 +91,7 @@ body {
   animation: fadeIn 0.4s ease-in-out;
 }
 
-/* Error message */
+
 .error-msg {
   color: #721c24;
   background: #f8d7da;
@@ -106,7 +103,7 @@ body {
   animation: fadeIn 0.4s ease-in-out;
 }
 
-/* Smooth fade effect */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }

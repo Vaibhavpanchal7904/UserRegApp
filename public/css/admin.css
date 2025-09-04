@@ -1,6 +1,4 @@
-/* ===============================
-   Base Layout
-================================= */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #eef2fb;
@@ -35,9 +33,7 @@ h2 {
   letter-spacing: 0.5px;
 }
 
-/* ===============================
-   Forms (Search/Filter)
-================================= */
+
 form {
   display: flex;
   flex-wrap: wrap;
@@ -77,9 +73,7 @@ form button:hover {
   transform: translateY(-2px);
 }
 
-/* ===============================
-   Table
-================================= */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -117,9 +111,7 @@ tbody tr:hover {
   transform: scale(1.002);
 }
 
-/* ===============================
-   Export Links
-================================= */
+
 .mb-4 {
   display: flex;
   flex-wrap: wrap;
@@ -143,9 +135,7 @@ tbody tr:hover {
   transform: translateY(-2px);
 }
 
-/* ===============================
-   Charts Section
-================================= */
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -181,9 +171,7 @@ tbody tr:hover {
   box-shadow: 0 10px 24px rgba(0,0,0,0.1);
 }
 
-/* ===============================
-   Header & Footer
-================================= */
+
 header, footer {
   background: #6366f1;
   color: white;
@@ -196,7 +184,7 @@ header, footer {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .table-user-link {
-  color: #6366f1;                  /* primary theme color */
+  color: #6366f1;                 
   font-weight: 600;
   text-decoration: none;
   padding: 6px 10px;
@@ -207,14 +195,14 @@ header, footer {
 
 .table-user-link:hover {
   background: #6366f1;
-  color: #fff;                     /* white text on hover */
+  color: #fff;                     
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(99,102,241,0.25);
 }
 
 .action-buttons {
   display: flex;
-  gap: 12px;         /* space between buttons */
+  gap: 12px;         
   align-items: center;
 }
 

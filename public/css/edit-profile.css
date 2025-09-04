@@ -1,23 +1,22 @@
-/* Background */
+
 .edit-profile-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #eaf6ff; /* same as register */
+  background: #eaf6ff; 
 }
 
-/* Card box */
+
 .edit-profile-card {
   background: #ffffff;
   border-radius: 12px;
   padding: 40px;
-  width: 420px; /* slightly wider than register */
+  width: 420px; 
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid #d6e9f9;
 }
 
-/* Heading */
 .edit-profile-card h2 {
   text-align: center;
   margin-bottom: 25px;
@@ -25,7 +24,6 @@
   font-weight: 600;
 }
 
-/* Input fields */
 .edit-profile-card input,
 .edit-profile-card textarea,
 .edit-profile-card select {
@@ -46,7 +44,6 @@
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-/* Button */
 .edit-profile-card button {
   width: 100%;
   padding: 12px;
@@ -63,7 +60,6 @@
   background: #0056b3;
 }
 
-/* Alerts */
 .alert {
   border-radius: 8px;
   font-size: 14px;

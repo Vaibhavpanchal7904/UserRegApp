@@ -1,9 +1,7 @@
-/* ===============================
-   User Profile Styling
-================================= */
+
 .profile-card {
-  max-width: 900px;       /* ⬅ wider than before */
-  width: 100%;            /* responsive */
+  max-width: 900px;      
+  width: 100%;           
   margin: 50px auto;
   background: #fff;
   padding: 45px;
@@ -27,14 +25,13 @@
   letter-spacing: 0.5px;
 }
 
-/* Profile Info */
-/* Profile Info */
+
 .profile-info {
   margin-bottom: 16px;
   font-size: 15px;
   display: flex;
-  align-items: center;              /* Align icon + text vertically */
-  gap: 14px;                        /* Space between icon and text */
+  align-items: center;              
+  gap: 14px;                        
   padding: 14px 18px;
   border-radius: 12px;
   background: #f9fafb;
@@ -44,7 +41,7 @@
 
 .profile-info i {
   font-size: 18px;
-  color: #6366f1;                   /* Highlight icons */
+  color: #6366f1;                  
   min-width: 22px;
   text-align: center;
 }
@@ -52,12 +49,12 @@
 .profile-info strong {
   color: #374151;
   font-weight: 600;
-  min-width: 280px;                /* Equal width for labels */
+  min-width: 280px;               
   display: inline-block;
 }
 
 .profile-info span {
-  flex: 1;                          /* Value expands neatly */
+  flex: 1;                         
   color: #1f2937;
 }
 
@@ -65,7 +62,7 @@
   background: #f3f4f6;
 }
 
-/* Back Link */
+
 .back-link {
   display: inline-block;
   margin-top: 25px;

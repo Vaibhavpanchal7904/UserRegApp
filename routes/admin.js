@@ -8,7 +8,7 @@ const multer = require('multer');
 const csv = require('csv-parser');
 const fs = require('fs');
 const upload = multer({ dest: 'uploads/' });
-// Admin dashboard with search/filter and report data
+
 router.get('/admin/dashboard', requireAdmin, async (req, res) => {
   try {
     const { q, gender, from, to } = req.query;
@@ -33,7 +33,6 @@ router.get('/admin/dashboard', requireAdmin, async (req, res) => {
       { $sort: { _id: 1 } }
     ]);
 
-    // age groups
     const ageGroups = {  '10-17': 0,'18-25': 0, '26-35': 0, '36-50': 0, '50+': 0 };
     users.forEach(u => {
   if (!u.dob) return;
@@ -56,7 +55,7 @@ router.get('/admin/dashboard', requireAdmin, async (req, res) => {
   }
 });
 
-// Export CSV
+
 router.get('/admin/export/csv', requireAdmin, async (req, res) => {
   try {
     const filter = { role: 'user' };
@@ -81,7 +80,7 @@ router.get('/admin/export/csv', requireAdmin, async (req, res) => {
   }
 });
 
-// Export PDF (simple)
+
 router.get('/admin/export/pdf', requireAdmin, async (req, res) => {
   try {
     const users = await User.find({ role: 'user' }).lean();
@@ -116,7 +115,7 @@ router.post('/admin/user/delete/:id', requireAdmin, async (req, res) => {
   }
 });
 
-// View a single user profile (admin side)
+
 router.get('/admin/user/:id', requireAdmin, async (req, res) => {
   try {
     const user = await User.findById(req.params.id).lean();
@@ -141,9 +140,9 @@ router.post('/admin/import/csv', requireAdmin, upload.single('csvfile'), async (
         results.push(row);
       })
       .on('end', async () => {
-        // Map CSV data to User model
+     
         for (const r of results) {
-          // Prevent duplicate emails
+       
           const exists = await User.findOne({ email: r.email });
           if (!exists) {
             await User.create({
@@ -153,12 +152,12 @@ router.post('/admin/import/csv', requireAdmin, upload.single('csvfile'), async (
               gender: r.gender || '',
               dob: r.dob ? new Date(r.dob) : null,
               address: r.address || '',
-              password: 'Temp@123', // you may want to auto-assign or generate
+              password: 'Temp@123', 
               role: 'user'
             });
           }
         }
-        fs.unlinkSync(req.file.path); // cleanup
+        fs.unlinkSync(req.file.path); 
         req.session.successMessage = "Users imported successfully!";
         res.redirect('/admin/dashboard');
       });

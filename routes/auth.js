@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-// helpers
+
 function validateEmail(email) {
   return /\S+@\S+\.\S+/.test(email);
 }
@@ -47,10 +47,10 @@ router.post('/login', async (req, res) => {
     const ok = await user.comparePassword(password);
     if (!ok) return res.render('login', { error: 'Invalid credentials.', registered: null });
 
-    // Save session
+  
     req.session.user = { id: user._id, fullName: user.fullName, email: user.email, role: user.role };
 
-    // Redirect by role
+    
     if (user.role === 'admin') return res.redirect('/admin/dashboard');
     res.redirect('/profile');
   } catch (err) {
